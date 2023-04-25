@@ -1,18 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import * as echarts from 'echarts';
-// import { EChartsOption } from "echarts/types/dist/shared";
-// import { ECBasicOption } from "echarts/types/src/util/types";
 
-interface EChartsOption {
-  dataset?: any;
-  xAxis?: any;
-  yAxis?: any;
-  series?: any;
+export interface EChartProps extends echarts.EChartsOption {
+  ref?: React.Ref<echarts.ECharts>;
 }
 
-type EChartsWrapperOption = {};
-export type EChartProps = echarts.EChartsOption & EChartsWrapperOption;
-// type EChartProps = EChartsOption;
 export type EChartAPI = echarts.ECharts;
 
 const EChart = React.forwardRef<EChartAPI, EChartProps>((props, ref) => {
@@ -55,7 +47,7 @@ const EChart = React.forwardRef<EChartAPI, EChartProps>((props, ref) => {
   }
 
   return <div style={autoSizeStyle} ref={chartContainerRef} />;
-});
+}) as FC<EChartProps>;
 
 const autoSizeStyle = { width: '100%', height: '100%' };
 

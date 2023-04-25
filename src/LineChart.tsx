@@ -25,10 +25,8 @@ export function LineChart() {
 
   return (
     <div>
-      <div style={{ width: '400px', height: '400px' }}>
+      <div style={{ width: '600px', height: '400px' }}>
         <EChart
-          // width={800}
-          // height={800}
           ref={chartApiRef}
           xAxis={{
             type: 'category',
@@ -43,6 +41,9 @@ export function LineChart() {
               type: 'line',
             },
           ]}
+          tooltip={{
+            trigger: 'axis'
+          }}
         />
       </div>
       <p></p>

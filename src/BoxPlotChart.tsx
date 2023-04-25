@@ -29,8 +29,8 @@ const transformOptions = {
 
 const chartOptions: EChartProps = {
   backgroundColor: '#292b2a',
-  width: 300,
-  height: 200,
+  // width: 300,
+  // height: 200,
   title: {
     text: 'Post money valuation',
     left: '15%',
@@ -199,7 +199,7 @@ export function BoxPlotChart() {
 
   return (
     <div>
-      <div style={{ width: '400px', height: '400px' }}>
+      <div style={{ width: '600px', height: '400px' }}>
         <EChart ref={chartApiRef} {...chartOptions} />
       </div>
       <p></p>
