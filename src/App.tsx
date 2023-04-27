@@ -8,11 +8,11 @@ import { NumberLineChart } from './NumberLineChart';
 function App() {
   return (
     <div>
+      <BoxPlotChart />
+      {/* <p></p>
       <LineChart />
       <p></p>
-      <NumberLineChart />
-      <p></p>
-      <BoxPlotChart />
+      <NumberLineChart /> */}
     </div>
   );
 }
