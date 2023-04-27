@@ -14,7 +14,7 @@ export const defaultTheme = 'dark';
 
 const EChart = React.forwardRef<EChartAPI, EChartProps>((props, ref) => {
   const chartContainerRef = useRef<HTMLDivElement>(null);
-  const [chartApi, setChartApi] = useState<EChartAPI>();
+  const [, setChartApi] = useState<EChartAPI>();
   const chartApiRef = useRef() as React.MutableRefObject<EChartAPI>;
   const resizeObserver = useRef<ResizeObserver>(
     new ResizeObserver((entries) => {
@@ -34,22 +34,18 @@ const EChart = React.forwardRef<EChartAPI, EChartProps>((props, ref) => {
   useImperativeHandle(ref, () => chartApiRef.current, [chartApiRef]);
 
   useEffect(() => {
-    console.log('EChart useEffect');
     if (!chartContainerRef.current || chartApiRef.current) return;
-    console.log('EChart useEffect after return');
     const chart = echarts.init(chartContainerRef.current, props.theme || defaultTheme, {
       renderer: 'canvas',
       useDirtyRect: false,
     });
-    setChartApi(chart);
-    chartApiRef.current = chart;
+    setChartApi((chartApiRef.current = chart));
     resizeObserver.current.observe(chartContainerRef.current);
   }, [chartApiRef.current]);
 
   if (chartApiRef.current) {
     chartApiRef.current.setOption(props);
   }
-  console.log('--- EChart rerender');
 
   return <div style={autoSizeStyle} ref={chartContainerRef} />;
 }) as FC<EChartProps>;

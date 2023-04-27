@@ -9,6 +9,7 @@ export function BoxPlotChart() {
   const [graphic, setGraphic] = useState<GraphicComponentOption>();
 
   const onMouseOver = (params: ECElementEvent) => {
+    // console.log('onMouseOver');
     const chartApi = chartApiRef.current;
     if (!chartApi || !params.data) return;
 
@@ -65,12 +66,11 @@ export function BoxPlotChart() {
   };
 
   useEffect(() => {
-    if (!chartApiRef.current) return;
+    const chartApi = chartApiRef.current;
+    if (!chartApi) return;
 
-    console.log('BoxPlot useEffect after return');
-
-    chartApiRef.current.on('mouseover', onMouseOver);
-    chartApiRef.current.on('mouseout', onMouseOut);
+    chartApi.on('mouseover', onMouseOver);
+    chartApi.on('mouseout', onMouseOut);
   }, [chartApiRef.current]);
 
   const onSaveChartClick = () => {
@@ -120,8 +120,8 @@ export function BoxPlotChart() {
           ]}
           graphic={graphic}
           tooltip={{
-            // trigger: 'item',
-            trigger: 'axis',
+            trigger: 'item',
+            // trigger: 'axis',
             axisPointer: {
               type: 'shadow',
             },
