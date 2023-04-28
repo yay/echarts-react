@@ -100,7 +100,7 @@ const themeDef = {
     },
     lineStyle: {
       width: 1,
-      color: '#aaaaaa',
+      color: '#aaa',
     },
     symbolSize: '6',
     symbol: 'emptyCircle',
@@ -272,11 +272,11 @@ const themeDef = {
   },
   toolbox: {
     iconStyle: {
-      borderColor: '#999999',
+      borderColor: '#999',
     },
     emphasis: {
       iconStyle: {
-        borderColor: '#666666',
+        borderColor: '#666',
       },
     },
   },
@@ -288,11 +288,11 @@ const themeDef = {
   tooltip: {
     axisPointer: {
       lineStyle: {
-        color: '#cccccc',
+        color: '#ccc',
         width: 1,
       },
       crossStyle: {
-        color: '#cccccc',
+        color: '#ccc',
         width: 1,
       },
     },

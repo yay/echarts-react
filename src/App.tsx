@@ -9,9 +9,9 @@ function App() {
   return (
     <div>
       <BoxPlotChart />
-      {/* <p></p>
-      <LineChart />
       <p></p>
+      <LineChart />
+      {/* <p></p>
       <NumberLineChart /> */}
     </div>
   );

@@ -15,7 +15,7 @@ export const defaultTheme = 'dark';
 const EChart = React.forwardRef<EChartAPI, EChartProps>((props, ref) => {
   const chartContainerRef = useRef<HTMLDivElement>(null);
   const [, setChartApi] = useState<EChartAPI>();
-  const chartApiRef = useRef() as React.MutableRefObject<EChartAPI>;
+  const chartApiRef = useRef<EChartAPI>() as React.MutableRefObject<EChartAPI>;
   const resizeObserver = useRef<ResizeObserver>(
     new ResizeObserver((entries) => {
       for (const entry of entries) {

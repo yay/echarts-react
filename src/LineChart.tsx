@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import EChart, { type EChartAPI } from './EChart';
+import EChart, { useChartApiRef } from './EChart';
+import './BloomTheme';
 
 export function LineChart() {
   const [points, setPoints] = useState([150, 230, 224, 218, 135, 147, 260]);
-  const chartApiRef = React.createRef<EChartAPI>();
+  const chartApiRef = useChartApiRef();
 
   const onClick = () => {
     const points: number[] = [];
@@ -28,6 +29,7 @@ export function LineChart() {
       <div style={{ width: '600px', height: '400px' }}>
         <EChart
           ref={chartApiRef}
+          theme="bloom"
           xAxis={{
             type: 'category',
             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -42,12 +44,13 @@ export function LineChart() {
             },
           ]}
           tooltip={{
-            trigger: 'axis'
+            trigger: 'axis',
           }}
         />
       </div>
       <p></p>
       <button onClick={onClick}>Refresh</button>
+      <span>&nbsp;</span>
       <button onClick={onSaveChartClick}>Save chart</button>
     </div>
   );

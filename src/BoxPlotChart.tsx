@@ -9,7 +9,6 @@ export function BoxPlotChart() {
   const [graphic, setGraphic] = useState<GraphicComponentOption>();
 
   const onMouseOver = (params: ECElementEvent) => {
-    // console.log('onMouseOver');
     const chartApi = chartApiRef.current;
     if (!chartApi || !params.data) return;
 
@@ -45,8 +44,6 @@ export function BoxPlotChart() {
           z: 100,
           x: pixel[0] - width / 2 - bandwidth / 2 + (componentIndex * bandwidth) / (componentCount - 1) - gap,
           y: pixel[1] - height - gap,
-          // left: pixel[0],
-          // top: 300, //pixel[1],
           shape: {
             width: width + gap * 2,
             height: height + gap * 2,
@@ -61,8 +58,9 @@ export function BoxPlotChart() {
       ],
     });
   };
+
   const onMouseOut = (params: ECElementEvent) => {
-    setGraphic({ type: 'group' });
+    // setGraphic({ type: 'rect' });
   };
 
   useEffect(() => {
@@ -88,6 +86,7 @@ export function BoxPlotChart() {
       <div style={{ width: '600px', height: '400px' }}>
         <EChart
           ref={chartApiRef}
+          animation={false}
           backgroundColor="#292b2a"
           // theme="bloom"
           title={{
