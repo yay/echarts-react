@@ -11,8 +11,8 @@ function App() {
       <BoxPlotChart />
       <p></p>
       <LineChart />
-      {/* <p></p>
-      <NumberLineChart /> */}
+      <p></p>
+      <NumberLineChart />
     </div>
   );
 }
